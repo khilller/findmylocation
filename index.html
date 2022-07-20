@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Embeded Maps</title>
+        <link rel="stylesheet" href="styles.css"/>
+        <script src='https://unpkg.com/maplibre-gl@2.1.9/dist/maplibre-gl.js'></script>
+        <link href='https://unpkg.com/maplibre-gl@2.1.9/dist/maplibre-gl.css' rel='stylesheet' />
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <section id="map-container">
+            <div id="location">
+                <h1>Find Your Location</h1>
+            </div>
+            <br>
+            <div id="shadow">
+            </div>
+           <div id="map">
+                <script>
+                    function getLocation() {
+                        if(navigator.geolocation) {
+                            navigator.geolocation.getCurrentPosition(showPosition)
+                        } else {
+                            alert("Geolocation is not supported on this browser")
+                        }
+                    }
+
+                    function showPosition(position) {
+                    
+                        var map = new maplibregl.Map({
+                            container: 'map',
+                            style: 'https://api.maptiler.com/maps/streets/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL',
+                            center: [position.coords.longitude, position.coords.latitude],
+                            zoom: 15
+                        });
+        
+                        var marker = new maplibregl.Marker()
+                            .setLngLat([position.coords.longitude, position.coords.latitude])
+                            .addTo(map);
+                    }
+                    getLocation()
+                </script>
+            </div>
+        </section>
+        
+    </body>    
+</html>
