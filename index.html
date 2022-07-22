@@ -18,14 +18,18 @@
             <div id="shadow">
             </div>
            <div id="map">
-                <script>
-                    
-                var map = new maplibregl.Map({
-                    container: 'map',
-                    style: 'https://api.maptiler.com/maps/streets/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL',
-                    center: [-96, 37.8],
-                    zoom: 3
-                });
+            <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;"><img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo"></a>
+        </div>
+        <p><a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a></p>
+        <script>
+          // You can remove the following line if you don't need support for RTL (right-to-left) labels:
+          maplibregl.setRTLTextPlugin('https://cdn.maptiler.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js');
+          var map = new maplibregl.Map({
+            container: 'map',
+            style: 'https://api.maptiler.com/maps/91e20002-11a5-4fb1-ba8d-5a8a70cdb128/style.json?key=FNoCbxKqgy1xuqbTegQr',
+            center: [-81.08540, 32.04007],
+            zoom: 3
+          });
     
                 map.addControl(
                     new maplibregl.GeolocateControl({
@@ -38,7 +42,6 @@
                 );
                 
                 </script>
-            </div>
         </section>
         
     </body>    
